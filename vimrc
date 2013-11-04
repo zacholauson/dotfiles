@@ -1,12 +1,9 @@
 source ~/.vimrc.bundles
 
-" Leader
 let mapleader = " "
 
 set nocompatible
-
 set incsearch     " do incremental searching
-
 set nobackup
 set noswapfile
 
@@ -15,23 +12,17 @@ filetype plugin on
 
 let g:netrw_liststyle=3
 
-" Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
 set backspace=2
-
 set numberwidth=5
 set foldcolumn=0
-
-" Display extra whitespace
 set list listchars=tab:»·,trail:·
 
 set history=1000
-set undolevels=1000
+set undolevels=500
 
-" Color scheme
 syntax enable
 set t_Co=256
 set background=dark
@@ -67,6 +58,3 @@ if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-" html2haml
-:vmap <leader>h :!/Users/zacholauson/.rvm/bin/vim_html2haml<cr>
