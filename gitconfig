@@ -1,0 +1,32 @@
+[push]
+  default = current
+[color]
+  ui = auto
+[alias]
+  aa = add --all
+  ap = add --patch
+  ca = commit --amend
+  ci = commit -v
+  co = checkout
+  create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
+  delete-branch = !sh -c 'git push origin :refs/heads/$1 && git remote prune origin && git branch -D $1' -
+  merge-branch = !git checkout master && git merge @{-1}
+  pr = !hub pull-request
+  st = status
+  up = !git fetch origin && git rebase origin/master
+  today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+  log-graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[merge]
+  ff = only
+[include]
+  path = .gitconfig.local
+[user]
+  name = Zach Olauson
+  email = zmolauson@gmail.com
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
