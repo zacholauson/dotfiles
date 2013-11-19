@@ -1,0 +1,65 @@
+# Unix
+alias tlf="tail -f"
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ...='../..'
+alias l='ls -lAh'
+alias ll='ls -al'
+alias lh='ls -Alh'
+alias -g G='| grep'
+alias -g M='| less'
+alias -g L='| wc -l'
+alias -g ONE="| awk '{ print \$1}'"
+alias e="$EDITOR"
+alias v="$VISUAL"
+
+alias aliases="vim ~/.aliases"
+alias zshrc="vim ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+alias tmuxconf="vim ~/.tmux.conf"
+
+# Projects
+alias p="cd /Users/zacholauson/Projects"
+alias pp="cd /Users/zacholauson/Projects/Personal"
+alias pk="cd /Users/zacholauson/Projects/Kohactive"
+
+# git
+alias gs="git status"
+alias gci="git pull --rebase && rake && git push"
+
+# Bundler
+alias b="bundle"
+alias be="bundle exec"
+alias bu="bundle update"
+
+# Tests and Specs
+alias t="ruby -I test"
+alias cuc="bundle exec cucumber"
+
+# Rubygems
+alias gi="gem install"
+alias giv="gem install -v"
+
+# Rails
+alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
+alias m="migrate"
+alias rk="rake"
+alias s="rspec"
+alias z="zeus"
+
+alias reload="exec $SHELL -l"
+
+alias :q="exit"
+alias c="clear"
+
+# zeus
+alias zs="zeus server"
+alias zg="zeus generate"
+alias zc="zeus console"
+
+# tmux
+alias rtmux="tmux source-file ~/.tmux.conf"
+alias tml="tmux list-sessions"
+alias tmk="tmux kill-session -t"
+
+alias u="cloudapp"
