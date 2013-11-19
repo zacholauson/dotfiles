@@ -73,19 +73,7 @@ fi
 PATH=$PATH:$HOME/.rvm/bin
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 
-export PATH=/usr/local/bin:/Users/zacholauson/.rvm/gems/ruby-1.9.3-p448/bin:
-            /Users/zacholauson/.rvm/gems/ruby-1.9.3-p448@global/bin:/Users/zacholauson/.rvm/rubies/ruby-1.9.3-p448/bin:/Users/zacholauson/.rvm/bin:
-            /opt/local/bin:
-            /opt/local/sbin:
-            /usr/bin:
-            /bin:
-            /usr/sbin:
-            /sbin:
-            /usr/local/bin:
-            /Users/zacholauson/bin:
-            /opt/local/bin:
-            /opt/local/sbin:
-            $PATH
+export PATH=/usr/local/bin:/Users/zacholauson/.rvm/gems/ruby-1.9.3-p448/bin:/Users/zacholauson/.rvm/gems/ruby-1.9.3-p448@global/bin:/Users/zacholauson/.rvm/rubies/ruby-1.9.3-p448/bin:/Users/zacholauson/.rvm/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/zacholauson/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
 export KEYTIMEOUT=1
 export ANDROID_HOME=/usr/local/opt/android-sdk
