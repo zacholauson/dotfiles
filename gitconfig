@@ -1,7 +1,7 @@
 [push]
   default = current
 [color]
-  ui = auto
+  ui = true
 [alias]
   aa = add --all
   ap = add --patch
@@ -15,7 +15,8 @@
   st = status
   up = !git fetch origin && git rebase origin/master
   today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
-  log-graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  stats = !git-summary
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
