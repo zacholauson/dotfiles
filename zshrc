@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/.zsh
 ZSH_THEME="minimal"
 plugins=(git rails ruby)
 
