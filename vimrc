@@ -4,6 +4,7 @@ let mapleader = " "
 
 set nocompatible
 set incsearch     " do incremental searching
+set hlsearch      " highlight all matches after entering search pattern
 set nobackup
 set noswapfile
 
@@ -19,6 +20,7 @@ set backspace=2
 set numberwidth=5
 set foldcolumn=0
 set list listchars=tab:»·,trail:·
+set showtabline=1
 
 set history=1000
 set undolevels=500
@@ -37,10 +39,6 @@ nnoremap <leader><leader> <c-^>
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -52,6 +50,17 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" splits
+
+set winwidth=90
+set winheight=5
+set winminheight=5
+set winheight=999
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
