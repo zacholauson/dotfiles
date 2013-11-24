@@ -50,9 +50,6 @@ setopt CORRECT CORRECT_ALL
 # Enable extended globbing
 setopt EXTENDED_GLOB
 
-#subl 3
-alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
-
 #bower
 alias bower='noglob bower'
 
