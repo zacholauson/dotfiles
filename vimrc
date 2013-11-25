@@ -21,6 +21,7 @@ set numberwidth=5
 set foldcolumn=0
 set list listchars=tab:»·,trail:·
 set showtabline=1
+set number
 
 set history=1000
 set undolevels=500
