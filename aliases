@@ -61,5 +61,6 @@ alias zc="zeus console"
 alias rtmux="tmux source-file ~/.tmux.conf"
 alias tml="tmux list-sessions"
 alias tmk="tmux kill-session -t"
+alias tms="tmux switch -t"
 
 alias u="cloudapp"
