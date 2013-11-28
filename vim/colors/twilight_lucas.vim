@@ -42,12 +42,10 @@ if version >= 700
   "PmenuThumb
 endif
 
-" hi Visual guibg=#404040
 hi Visual term=reverse cterm=reverse
 hi Cursor guifg=NONE guibg=#586068
-hi Cursor guibg=#b0d0f0
 hi LineNr ctermfg=red
-hi CursorLine   cterm=NONE ctermfg=red guifg=red
+hi CursorLine cterm=NONE ctermfg=red guifg=red
 
 exe 'hi Normal         guifg='.s:white             .' guibg='.s:darkgrey
 exe 'hi Underlined     guifg='.s:white             .' guibg='.s:darkgrey        .' gui=underline'
