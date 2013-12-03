@@ -1,4 +1,3 @@
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.zsh
 ZSH_THEME="minimal"
 plugins=(git rails ruby)
@@ -19,9 +18,11 @@ export DISABLE_AUTO_TITLE="true"
 
 # use incremental search
 bindkey "^R" history-incremental-search-backward
+
 # add some readline keys back
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
+
 # handy keybindings
 bindkey "^P" history-search-backward
 bindkey "^Y" accept-and-hold
@@ -70,7 +71,7 @@ if [[ ! $TERM =~ screen ]]; then
   exec tmux
 fi
 
-export PATH=/usr/local/bin:/Users/zacholauson/.rvm/gems/ruby-1.9.3-p448/bin:/Users/zacholauson/.rvm/gems/ruby-1.9.3-p448@global/bin:/Users/zacholauson/.rvm/rubies/ruby-1.9.3-p448/bin:/Users/zacholauson/.rvm/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/zacholauson/bin:/opt/local/bin:/opt/local/sbin:/Users/zacholauson/.rvm/bin:$PATH
-
 export KEYTIMEOUT=1
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
+export PATH=/usr/local/bin:/Users/zacholauson/.rvm/gems/ruby-1.9.3-p448/bin:/Users/zacholauson/.rvm/gems/ruby-1.9.3-p448@global/bin:/Users/zacholauson/.rvm/rubies/ruby-1.9.3-p448/bin:/Users/zacholauson/.rvm/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/zacholauson/bin:/opt/local/bin:/opt/local/sbin:/Users/zacholauson/.rvm/bin:$PATH
