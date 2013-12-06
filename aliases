@@ -41,11 +41,12 @@ alias gi="gem install"
 alias giv="gem install -v"
 
 # Rails
+alias rs="bundle exec rails server"
+alias rc="bundle exec rails console"
 alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
 alias m="migrate"
 alias rk="rake"
 alias s="rspec"
-alias z="zeus"
 
 alias reload="exec $SHELL -l"
 
