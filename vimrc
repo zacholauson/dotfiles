@@ -28,8 +28,8 @@ set undolevels=500
 
 syntax enable
 set t_Co=256
-set background=dark
-colorscheme twilight_lucas
+" set background=dark
+" colorscheme twilight_lucas
 
 set numberwidth=5
 set foldcolumn=0
@@ -51,6 +51,12 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" Navigate 2x faster when holding down Shift
+nmap <s-j> 2j
+nmap <s-k> 2k
+nmap <s-h> 2h
+nmap <s-l> 2l
 
 " splits
 
