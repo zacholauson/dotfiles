@@ -13,6 +13,8 @@ alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
+alias cat="pygmentize -g"
+
 alias aliases="vim ~/.aliases"
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
