@@ -23,9 +23,6 @@ Bundle 'bling/vim-airline'
 Bundle 'chriskempson/base16-vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
-
-if filereadable(expand("~/.vimrc.bundles.local"))
-  source ~/.vimrc.bundles.local
-endif
+Bundle 'rking/ag.vim'
 
 filetype on
