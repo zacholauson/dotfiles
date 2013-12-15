@@ -66,8 +66,13 @@ function record(){
 }
 
 function tmux-new-session(){
-  TMUX= tmux new-session -d -s $1
-  tmux switch-client -t $1
+  if [ $1 ]; then
+    TMUX= tmux new-session -d -s $1
+    tmux switch-client -t $1
+  else
+    TMUX= tmux new-session -d -s zsh
+    tmux switch-client -t zsh
+  fi
 }
 
 # system-wide environment settings for zsh(1)
