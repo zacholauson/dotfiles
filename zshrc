@@ -54,27 +54,6 @@ setopt CORRECT CORRECT_ALL
 # Enable extended globbing
 setopt EXTENDED_GLOB
 
-#bower
-alias bower='noglob bower'
-
-function ssht(){
-  ssh $* -t 'tmux a || tmux || /bin/bash'
-}
-
-function record(){
-  sox -d $1
-}
-
-function tmux-new-session(){
-  if [ $1 ]; then
-    TMUX= tmux new-session -d -s $1
-    tmux switch-client -t $1
-  else
-    TMUX= tmux new-session -d -s zsh
-    tmux switch-client -t zsh
-  fi
-}
-
 # system-wide environment settings for zsh(1)
 if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
