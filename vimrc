@@ -28,8 +28,8 @@ set undolevels=500
 
 syntax enable
 set t_Co=256
-" set background=dark
-" colorscheme twilight_lucas
+set background=dark
+colorscheme twilight_lucas
 
 set numberwidth=5
 set foldcolumn=0

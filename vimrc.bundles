@@ -24,5 +24,6 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'rking/ag.vim'
+Bundle 'mhinz/vim-startify'
 
 filetype on
