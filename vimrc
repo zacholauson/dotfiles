@@ -59,7 +59,6 @@ nmap <s-h> 2h
 nmap <s-l> 2l
 
 " splits
-
 set winwidth=90
 set winheight=5
 set winminheight=5
@@ -75,7 +74,7 @@ let g:syntastic_check_on_open=1
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --line-numbers\ --noheading
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
