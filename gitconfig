@@ -40,3 +40,5 @@
   diff = diff-highlight | less
 [commit]
   template = ~/.gitmessage
+[branch]
+  autosetuprebase = always
