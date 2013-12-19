@@ -26,5 +26,6 @@ Bundle 'rizzatti/dash.vim'
 Bundle 'rking/ag.vim'
 Bundle 'mhinz/vim-startify'
 Bundle "pangloss/vim-javascript"
+Bundle 'kchmck/vim-coffee-script'
 
 filetype on
