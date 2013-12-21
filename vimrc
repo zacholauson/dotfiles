@@ -58,15 +58,15 @@ nmap <s-k> 2k
 nmap <s-h> 2h
 nmap <s-l> 2l
 
-" splits
-set winwidth=90
-set winheight=5
-set winminheight=5
-set winheight=999
-
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
+" " splits
+" set winwidth=90
+" set winheight=5
+" set winminheight=5
+" set winheight=999
+" 
+" " Open new split panes to right and bottom, which feels more natural
+" set splitbelow
+" set splitright
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
