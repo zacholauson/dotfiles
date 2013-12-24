@@ -12,3 +12,8 @@ Pry::Commands.create_command "html5tidy" do
   end
 end
 
+begin
+  require 'awesome_print'
+  Pry.config.print = proc { |output, value| output.puts value.ai }
+rescue LoadError => err
+end
