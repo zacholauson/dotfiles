@@ -27,7 +27,6 @@ alias pk="cd /Users/zacholauson/Projects/Kohactive"
 
 # git
 alias gs="git status"
-alias gci="git pull --rebase && rake && git push"
 
 # Bundler
 alias b="bundle"
@@ -54,11 +53,6 @@ alias reload="exec $SHELL -l"
 
 alias :q="exit"
 alias c="clear"
-
-# zeus
-alias zs="zeus server"
-alias zg="zeus generate"
-alias zc="zeus console"
 
 # tmux
 alias rtmux="tmux source-file ~/.tmux.conf"

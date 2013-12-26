@@ -7,7 +7,5 @@ rerun.txt
 tags
 tmp/**/*
 !tmp/cache/.keep
-zeus.json
-.zeus.sock
 todo
 dump.rdb
