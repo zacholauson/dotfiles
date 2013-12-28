@@ -2,7 +2,7 @@ ZSH=$HOME/.zsh
 ZSH_THEME="minimal"
 plugins=(git rails ruby)
 
-source $ZSH/oh-my-zsh.sh
+source $ZSH/zsh.sh
 
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
