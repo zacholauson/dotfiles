@@ -1,17 +1,15 @@
 # Unix
 alias tlf="tail -f"
-alias ln='ln -v'
 alias mkdir='mkdir -p'
 alias ...='../..'
 alias l='ls -lAh'
-alias ll='ls -al'
-alias lh='ls -Alh'
 
 alias e="$EDITOR"
 alias v="$VISUAL"
 
 alias cat="pygmentize -g"
 
+# Configs
 alias aliases="vim ~/.aliases"
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
@@ -33,10 +31,6 @@ alias bu="bundle update"
 # Tests and Specs
 alias cuc="bundle exec cucumber"
 alias specs="rspec spec/"
-
-# Rubygems
-alias gi="gem install"
-alias giv="gem install -v"
 
 # Rails
 alias rs="bundle exec rails server"
