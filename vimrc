@@ -24,12 +24,12 @@ set showtabline=1
 set number
 
 set history=1000
+
 set undolevels=500
 
 syntax enable
 set t_Co=256
 set background=dark
-" colorscheme twilight_lucas
 
 set numberwidth=5
 set foldcolumn=0
@@ -46,27 +46,17 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Hold shift to move quicker for scanning really large files
+nmap <s-j> 3j
+nmap <s-k> 3k
+nmap <s-h> 3h
+nmap <s-l> 3l
+
 " Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-
-" Navigate 2x faster when holding down Shift
-nmap <s-j> 2j
-nmap <s-k> 2k
-nmap <s-h> 2h
-nmap <s-l> 2l
-
-" " splits
-" set winwidth=90
-" set winheight=5
-" set winminheight=5
-" set winheight=999
-" 
-" " Open new split panes to right and bottom, which feels more natural
-" set splitbelow
-" set splitright
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
