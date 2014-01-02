@@ -17,3 +17,6 @@ begin
   Pry.config.print = proc { |output, value| output.puts value.ai }
 rescue LoadError => err
 end
+
+Pry.config.history.should_save = false
+Pry.config.prompt = [proc { "> " }]
