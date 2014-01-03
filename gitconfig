@@ -1,9 +1,6 @@
-[push]
-  default = current
 [color]
   ui = true
 [alias]
-  aa = add --all
   ap = add --patch
   ca = commit --amend
   ci = commit -v
@@ -14,14 +11,13 @@
   merge-branch = !git checkout master && git merge @{-1}
 
   st = status
-  up = !git fetch origin && git rebase origin/master
   undo = !git-undo
-  stash-all = !git add --all && git stash
   staged = diff --staged
 
   today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
   graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
   stats = !git-summary
+
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 [core]
@@ -29,8 +25,6 @@
   autocrlf = input
 [merge]
   ff = only
-[include]
-  path = .gitconfig.local
 [user]
   name = Zach Olauson
   email = zmolauson@gmail.com
@@ -38,7 +32,5 @@
   log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
-[commit]
-  template = ~/.gitmessage
 [branch]
   autosetuprebase = always
