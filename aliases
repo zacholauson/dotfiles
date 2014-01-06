@@ -7,13 +7,8 @@ alias l='ls -lAh'
 alias e="$EDITOR"
 alias v="$VISUAL"
 
+# colorize cat output
 alias cat="pygmentize -g"
-
-# Configs
-alias aliases="vim ~/.aliases"
-alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
-alias tmuxconf="vim ~/.tmux.conf"
 
 # Projects
 alias p="cd /Users/zacholauson/Projects"
@@ -43,7 +38,9 @@ alias s="rspec"
 alias reload="exec $SHELL -l"
 
 alias :q="exit"
-alias c="clear"
+
+# TODO: Try to get away from using this all the time
+# alias c="clear"
 
 # tmux
 alias rtmux="tmux source-file ~/.tmux.conf"
@@ -51,4 +48,5 @@ alias tml="tmux list-sessions"
 alias tmk="tmux kill-session -t"
 alias tms="tmux switch -t"
 
+# Cloudapp uploader from @holman ~/bin/cloudapp
 alias u="cloudapp"
