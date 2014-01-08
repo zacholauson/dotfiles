@@ -20,7 +20,6 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/tComment'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'rking/ag.vim'
-Bundle 'mhinz/vim-startify'
 Bundle "pangloss/vim-javascript"
 Bundle 'kchmck/vim-coffee-script'
 
