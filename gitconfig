@@ -1,0 +1,32 @@
+[color]
+  ui = true
+[alias]
+  ap = add --patch
+  ca = commit --amend
+  ci = commit -v
+  co = checkout
+
+  st = status -s
+  undo = !git-undo
+  staged = diff --staged
+
+  today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+  graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  stats = !git-summary
+
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[merge]
+  ff = only
+[user]
+  name = Zach Olauson
+  email = zmolauson@gmail.com
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
+[branch]
+  autosetuprebase = always
