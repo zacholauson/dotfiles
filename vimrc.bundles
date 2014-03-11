@@ -21,5 +21,7 @@ Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 Bundle 'scrooloose/nerdtree'
 Bundle 'zhaocai/GoldenView.Vim'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wesQ3/vim-windowswap'
 
 filetype on
