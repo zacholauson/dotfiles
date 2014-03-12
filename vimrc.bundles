@@ -8,7 +8,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Define bundles via Github repos
-Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-endwise'
@@ -25,5 +24,6 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'wesQ3/vim-windowswap'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'kien/ctrlp.vim'
 
 filetype on
