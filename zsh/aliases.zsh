@@ -1,8 +1,7 @@
 # Unix
-alias mkdir='mkdir -p'
+alias mkdir='mkdir -pv'
 alias ...='../..'
-alias l='ls -lAh'
-alias ls='ls -lA'
+alias l='ls -lAhpG'
 
 alias e="$EDITOR"
 alias v="$VISUAL"
@@ -27,9 +26,6 @@ alias specs="rspec spec/"
 # Rails
 alias rs="bundle exec rails server"
 alias rc="bundle exec rails console"
-alias m="migrate"
-alias rk="rake"
-alias s="rspec"
 
 alias reload="exec $SHELL -l"
 
