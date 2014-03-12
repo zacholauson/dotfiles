@@ -4,7 +4,7 @@ set t_Co=256
 set t_ut=
 
 set bg=dark
-colorscheme base16-eighties
+colorscheme lucius
 
 set nocursorcolumn " dont hl the cursors column
 set nocursorline " dont hl the cursor line
