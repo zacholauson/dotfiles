@@ -4,26 +4,41 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-" Define bundles via Github repos
+Bundle 'tsaleh/vim-matchit'
+Bundle 'godlygeek/tabular'
+
+" --- Language Specific --- "
 Bundle 'scrooloose/syntastic'
+Bundle 'vim-scripts/tComment'
+
+" Ruby
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
-Bundle 'tsaleh/vim-matchit'
-Bundle 'vim-scripts/tComment'
-Bundle 'vim-scripts/VimClojure'
-Bundle 'tpope/vim-classpath'
+
+" Clojure
 Bundle 'guns/vim-clojure-static'
-Bundle 'scrooloose/nerdtree'
-Bundle 'zhaocai/GoldenView.Vim'
+Bundle 'tpope/vim-classpath'
+Bundle 'vim-scripts/VimClojure'
+
+" Javascript
 Bundle 'digitaltoad/vim-jade'
-Bundle 'wesQ3/vim-windowswap'
+
+" Markdown
+Bundle 'plasticboy/vim-markdown'
+
+" --- Git --- "
+Bundle 'airblade/vim-gitgutter'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'tpope/vim-fugitive'
+
+" --- Movement --- "
+Bundle 'scrooloose/nerdtree'
+Bundle 'zhaocai/GoldenView.Vim'
+Bundle 'wesQ3/vim-windowswap'
 Bundle 'kien/ctrlp.vim'
 
 filetype on
