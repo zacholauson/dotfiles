@@ -23,5 +23,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'zhaocai/GoldenView.Vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'wesQ3/vim-windowswap'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 filetype on
