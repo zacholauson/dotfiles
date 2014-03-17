@@ -14,6 +14,8 @@ alias tmuxconf="vim ~/.tmux.conf"
 
 # git
 alias gs="git status"
+alias gd="git diff"
+alias gst="git staged"
 
 # Bundler
 alias b="bundle"
@@ -40,6 +42,8 @@ alias tms="tmux switch -t"
 
 # Show history
 alias history='fc -l 1'
+
+alias tree="tree --dirsfirst -lFC"
 
 # directory movement
 setopt auto_name_dirs

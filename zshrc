@@ -26,7 +26,7 @@ setopt EXTENDED_GLOB
 
 # history
 if [ -z $HISTFILE ]; then
-    HISTFILE=$HOME/.history
+  HISTFILE=$HOME/.history
 fi
 
 HISTSIZE=10000
