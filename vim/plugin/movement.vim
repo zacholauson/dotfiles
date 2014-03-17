@@ -6,3 +6,6 @@ nmap <s-j> 3j
 nmap <s-k> 3k
 nmap <s-h> 3h
 nmap <s-l> 3l
+
+set splitright
+set splitbelow

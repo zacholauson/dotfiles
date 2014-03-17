@@ -435,7 +435,6 @@ else
         hi Error        guifg=#d75f5f   guibg=#870000
         hi IncSearch                    guibg=#00afaf
         hi MatchParen   guifg=#87af5f   guibg=bg
-        " hi MatchParen                   guibg=#87af5f
         hi Search                       guibg=#d78700
         hi Todo         guifg=#afaf00   guibg=#5f5f00
     elseif s:contrast == "high"
@@ -543,19 +542,17 @@ if s:style == "light"
         hi VertSplit                    guibg=#808080
     endif
 else
-    hi ColorColumn                  guibg=#3a3a3a
-    hi CursorLineNr guifg=#9e9e9e   guibg=#444444
-    hi FoldColumn                   guibg=#4e4e4e
-    hi Folded                       guibg=#4e4e4e
-    hi LineNr       guifg=#626262   guibg=#303030
-    hi SignColumn                   guibg=#303030
-    " hi LineNr       guifg=#626262   guibg=#444444
-    hi PmenuSel                     guibg=#005f87
-    " hi SignColumn                   guibg=#4e4e4e
-    hi StatusLineNC guifg=#4e4e4e
-    hi TabLineFill  guifg=#4e4e4e
-    hi VertSplit    guifg=#626262
-    hi WildMenu                     guibg=#005f87
+    hi ColorColumn                      guibg=#3a3a3a
+    hi CursorLineNr     guifg=#9e9e9e   guibg=#444444
+    hi FoldColumn                       guibg=#4e4e4e
+    hi Folded                           guibg=#4e4e4e
+    hi LineNr           guifg=#626262   guibg=#303030
+    hi SignColumn                       guibg=#303030
+    hi PmenuSel                         guibg=#005f87
+    hi StatusLineNC     guifg=#4e4e4e
+    hi TabLineFill      guifg=#4e4e4e
+    hi VertSplit        guifg=#626262
+    hi WildMenu                         guibg=#005f87
     if s:contrast == "low"
         hi FoldColumn   guifg=#a8a8a8
         hi Folded       guifg=#a8a8a8
@@ -564,11 +561,11 @@ else
         hi PmenuThumb                   guibg=#585858
         hi SignColumn   guifg=#8a8a8a
         hi StatusLine                   guibg=#8a8a8a
-        hi StatusLineNC                 guibg=#8a8a8a
-        hi TabLine                      guibg=#8a8a8a
-        hi TabLineFill                  guibg=#8a8a8a
+        hi StatusLineNC guifg=bg        guibg=#626262
+        hi TabLine                      guibg=#626262
+        hi TabLineFill                  guibg=#626262
         hi TabLineSel                   guibg=#005f87
-        hi VertSplit                    guibg=#8a8a8a
+        hi VertSplit                    guibg=#626262
     elseif s:contrast == "high"
         hi FoldColumn   guifg=#c6c6c6
         hi Folded       guifg=#c6c6c6

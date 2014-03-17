@@ -13,6 +13,8 @@ set synmaxcol=800 " dont hl long lines
 set list listchars=tab:»·,trail:·
 set showtabline=1
 
+set fillchars=vert:˙
+
 set number
 set numberwidth=2
 set foldcolumn=0
