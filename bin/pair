@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'yaml'
+
+DIGITALOCEANFILE = "~/.digitalocean"
+CONFIG           = YAML.load_file(File.expand_path(DIGITALOCEANFILE))
+
+def get_dropletID(domain)
+  CONFIG["droplets"][domain]["id"]
+end
+
+def boot_server(dropletID)
+  JSON.parse(`curl -sG "https://api.digitalocean.com/droplets/#{dropletID}/power_on/?client_id=#{CONFIG["keys"]["client"]}&api_key=#{CONFIG["keys"]["api"]}"`)
+end
+
+def server_up?(dropletID)
+  JSON.parse(`curl -sG "https://api.digitalocean.com/droplets/#{dropletID}?client_id=#{CONFIG["keys"]["client"]}&api_key=#{CONFIG["keys"]["api"]}"`)["droplet"]["status"] == "active"
+end
+
+def setup_pair_session_on(domain)
+  dropletID = get_dropletID(domain)
+  unless server_up?(dropletID)
+    boot_server(dropletID)
+    puts "waiting for server to boot"
+    until server_up?(dropletID)
+      sleep(10)
+    end
+    puts "server up, connecting..."
+    sleep(15)
+  end
+  `tmate`
+end
+
+setup_pair_session_on("pair.zacholauson.io")
