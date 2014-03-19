@@ -30,3 +30,5 @@
   diff = diff-highlight | less
 [branch]
   autosetuprebase = always
+[github]
+  user = zacholauson

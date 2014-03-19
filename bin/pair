@@ -22,11 +22,9 @@ def setup_pair_session_on(domain)
   dropletID = get_dropletID(domain)
   unless server_up?(dropletID)
     boot_server(dropletID)
-    puts "waiting for server to boot"
     until server_up?(dropletID)
       sleep(10)
     end
-    puts "server up, connecting..."
     sleep(15)
   end
   `tmate`

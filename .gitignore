@@ -2,3 +2,4 @@
 vim/bundle/*
 !vim/bundle/vundle
 *zcompdump*
+tmate.conf
