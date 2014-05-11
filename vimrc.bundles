@@ -6,8 +6,11 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'tsaleh/vim-matchit'
+Bundle 'edsono/vim-matchit'
 Bundle 'godlygeek/tabular'
+Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim.git'
+Bundle 'Raimondi/delimitMate'
 
 " --- Language Specific --- "
 Bundle 'scrooloose/syntastic'
@@ -15,8 +18,9 @@ Bundle 'vim-scripts/tComment'
 
 " Ruby
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'jgdavey/tslime.vim'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
+" Bundle 'tpope/vim-rails'
 
 " Clojure
 Bundle 'guns/vim-clojure-static'
@@ -24,21 +28,23 @@ Bundle 'tpope/vim-classpath'
 Bundle 'vim-scripts/VimClojure'
 
 " Javascript
-Bundle 'digitaltoad/vim-jade'
+" Bundle 'digitaltoad/vim-jade'
 
 " Markdown
-Bundle 'plasticboy/vim-markdown'
+" Bundle 'plasticboy/vim-markdown'
 
 " --- Git --- "
 Bundle 'airblade/vim-gitgutter'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-fugitive'
 
 " --- Movement --- "
 Bundle 'scrooloose/nerdtree'
 Bundle 'zhaocai/GoldenView.Vim'
-Bundle 'wesQ3/vim-windowswap'
+" Bundle 'wesQ3/vim-windowswap'
 Bundle 'kien/ctrlp.vim'
+
+Bundle 'mtth/scratch.vim'
 
 filetype on
