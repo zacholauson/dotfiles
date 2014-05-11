@@ -7,6 +7,10 @@ export TERM='xterm-256color'
 export VISUAL=vim
 export EDITOR=vim
 
+zle -N foreground-vim
+bindkey '^Z' foreground-vim
+
+
 # expand functions in the prompt
 setopt prompt_subst
 

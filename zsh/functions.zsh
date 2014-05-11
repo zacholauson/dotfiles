@@ -10,3 +10,6 @@ function record(){
   fi
 }
 
+function foreground-vim() {
+  fg %vim
+}
