@@ -13,3 +13,19 @@ function record(){
 function foreground-vim() {
   fg %vim
 }
+
+
+autoload -U add-zsh-hook
+
+function change-git-email-to() {
+  git config --global user.email $1
+}
+
+function set-git-email() {
+  case $PWD/ in
+    (*/8thlight/*) change-git-email-to "zach@8thlight.com";;
+    (*)            change-git-email-to "zmolauson@gmail.com";;
+  esac
+}
+
+add-zsh-hook chpwd set-git-email
