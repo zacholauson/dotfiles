@@ -1,5 +1,3 @@
-# fixme - the load process here seems a bit bizarre
-
 unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
 setopt auto_menu         # show completion menu on succesive tab press
@@ -74,17 +72,16 @@ if [ "x$COMPLETION_WAITING_DOTS" = "xtrue" ]; then
   bindkey "^I" expand-or-complete-with-dots
 fi
 
-if [[ "$DISABLE_CORRECTION" == "true" ]]; then
-  return
-else
-  setopt correct_all
-  alias man='nocorrect man'
-  alias mv='nocorrect mv'
-  alias mysql='nocorrect mysql'
-  alias mkdir='nocorrect mkdir'
-  alias gist='nocorrect gist'
-  alias heroku='nocorrect heroku'
-  alias ebuild='nocorrect ebuild'
-  alias hpodder='nocorrect hpodder'
-  alias sudo='nocorrect sudo'
-fi
+setopt correct_all
+alias man='nocorrect man'
+alias mv='nocorrect mv'
+alias mysql='nocorrect mysql'
+alias mkdir='nocorrect mkdir'
+alias gist='nocorrect gist'
+alias heroku='nocorrect heroku'
+alias sudo='nocorrect sudo'
+alias knife='nocorrect knife'
+alias cookbook='nocorrect cookbook'
+alias bundle='nocorrect bundle'
+alias ag='nocorrect ag'
+alias erl='nocorrect erl'

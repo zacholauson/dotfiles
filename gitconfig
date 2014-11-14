@@ -1,34 +1,39 @@
+[user]
+  name  = Zach Olauson
+  email = zmolauson@gmail.com
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf     = input
+[branch]
+  autosetuprebase = always
+[merge]
+  ff = only
 [color]
   ui = true
 [alias]
-  ap = add --patch
-  ca = commit --amend
-  ci = commit -v
-  co = checkout
-
-  st = status -s
-  undo = !git-undo
+  aa     = add --all
+  ap     = add --patch
+  ca     = commit --amend
+  ci     = commit --verbose
+  co     = checkout
+  st     = status -s
+  fa     = fetch --all
+  di     = diff
+  dc     = diff --cached
+  ds     = diff --staged
   staged = diff --staged
-
-  today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
-  graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-  stats = !git-summary
-
-  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-[core]
-  excludesfile = ~/.gitignore
-  autocrlf = input
-[merge]
-  ff = only
-[user]
-  name = Zach Olauson
-  email = zmolauson@gmail.com
+  div    = divergence
+  run    = !run-command-on-git-revisions
+  stats  = !git-summary
+  graph  = !git-graph
+  undo   = !git-undo
+  head   = !git l -1
+  h      = !git head
+  l      = "!. ~/.githelpers && pretty_git_log"
+  r      = !git l -30
+  ra     = !git r --all
+  la     = !git l --all
+  hp     = "!. ~/.githelpers && show_git_head"
 [pager]
-  log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
-[branch]
-  autosetuprebase = always
-[github]
-  user = zacholauson

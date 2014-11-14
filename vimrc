@@ -1,5 +1,3 @@
-source ~/.vimrc.bundles
-
 let mapleader = " "
 let g:netrw_liststyle=3
 
@@ -8,14 +6,66 @@ set noerrorbells
 set history=1000
 set undolevels=500
 set nobackup noswapfile
+
 set tabstop=2 shiftwidth=2 backspace=2 expandtab
+
+au FileType java setl tabstop=4 shiftwidth=4 expandtab
+au FileType xml  setl tabstop=4 shiftwidth=4 expandtab
+
 set backspace=indent,eol,start
 set splitright splitbelow
-set autoindent
-set incsearch hlsearch
+set autoindent nowrap
+set incsearch nohlsearch
+
+" --------------------------------- "
+" ------------ Bundles ------------ "
+" --------------------------------- "
+
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'godlygeek/tabular'
+Bundle 'rking/ag.vim'
+Bundle 'Raimondi/delimitMate'
+
+" --- Language Specific --- "
+Bundle 'vim-scripts/tComment'
+Bundle 'Yggdroot/indentLine'
+Bundle 'ervandew/supertab'
+
+" Ruby
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'jgdavey/tslime.vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+
+" Clojure
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-classpath'
+Bundle 'vim-scripts/VimClojure'
+
+" --- Git --- "
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+
+" --- Movement --- "
+Bundle 'scrooloose/nerdtree'
+Bundle 'zhaocai/GoldenView.Vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
+
+Bundle 'itchyny/lightline.vim'
+Bundle 'tpope/vim-surround'
+
+Bundle 'jnwhiteh/vim-golang'
+
+set runtimepath+=$GOROOT/misc/vim " replace $GOROOT with the output of: go env GOROOT
 
 filetype plugin indent on
-
 
 " --------------------------------- "
 " ------------- Theme ------------- "
@@ -25,10 +75,11 @@ syntax enable
 
 set t_Co=256
 set t_ut=
-" set t_ti= t_te=
 set bg=dark
 
 colorscheme lucius
+" colorscheme seoul256
+" colorscheme github
 
 set nocursorcolumn nocursorline
 set synmaxcol=800
@@ -37,9 +88,17 @@ set showtabline=1
 set fillchars=vert:˙
 set number numberwidth=2
 set foldcolumn=0
+
+let g:lightline = {
+      \ 'colorscheme': 'solarized_light',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+\ }
+
 set laststatus=2
 set statusline=[%n]\ %<%.99f\ %h%w%m%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
-
 
 " --------------------------------- "
 " ------------ Movement ----------- "
@@ -66,14 +125,6 @@ let g:gist_post_private = 1
 vnoremap <C-g><C-g> :Gist<CR>
 nnoremap <C-g><C-g> :Gist<CR>
 
-"            Syntastic              "
-let g:syntastic_check_on_open=1
-
-"            GitGutter              "
-let g:gitgutter_highlight_lines = 0
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
-
 "           GoldenView              "
 let g:goldenview__enable_default_mapping = 0
 nmap <silent> <C-L> <Plug>GoldenViewSplit
@@ -88,16 +139,32 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 let g:clojure_align_multiline_strings = 1
 
 "           vimclojure              "
-let vimclojure#DynamicHighlighting=1
-let vimclojure#HighlightBuiltins=1
-let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting = 1
+let vimclojure#HighlightBuiltins = 1
+let vimclojure#HighlightContrib = 1
+let vimclojure#FuzzyIndent = 1
 
 "           Tabularize              "
-vmap <Leader>a= :Tabularize /=/<CR>
+vmap <Leader>a=  :Tabularize /=<CR>
+vmap <Leader>a=> :Tabularize /=><CR>
+vmap <Leader>a,  :Tabularize /,\zs<CR>
+vmap <Leader>a:  :Tabularize /:\zs<CR>
 
-"            Scratch                "
-let g:scratch_height = 10
-let g:scratch_top = 1
+"              TSlime               "
+
+map <leader>Tn :call ResetTSlimePaneNumber()<CR>
+map <leader>Ts :call ResetTSlimeVars()<CR>
+
+"              CtrlP                "
+let g:ctrlp_user_command = 'ag %s -f -l --nocolor -g ""'
+let g:ctrlp_extensions = ['funky']
+nmap <Leader>cf :CtrlPFunky<Cr>
+nmap <Leader>cF :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
+"           IndentLine              "
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_char = '│'
 
 
 " --------------------------------- "
@@ -105,35 +172,55 @@ let g:scratch_top = 1
 " --------------------------------- "
 
 let g:html_indent_tags = 'li\|p'
-let g:vim_markdown_folding_disabled=1
-
+let g:vim_markdown_folding_disabled = 1
 nnoremap <silent><C-h><C-l> :nohl<CR>
-
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-
 map <Leader>rf :call RenameFile()<cr>
-
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>pp :setlocal paste!<cr>
+
+" copy / paste to mac clipboard
+nnoremap <leader>c "*yy
+vnoremap <leader>c "*y
+nnoremap <leader>v "*p
+vnoremap <leader>v "*p
 
 
 " --------------------------------- "
 " ---- Additional File Support ---- "
 " --------------------------------- "
 
-au BufRead,BufNewFile *.hiccup                           setf clojure
 au BufRead,BufNewFile *.json                             setf javascript
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+
+augroup speclj
+  autocmd!
+
+  au BufNewFile,BufRead *_spec.clj let b:clojure_syntax_keywords = {
+      \   'clojureMacro': ["describe", "context", "before", "before-all", "after", "after-all", "around", "it"],
+      \   'clojureFunc':  ["should==", "should=", "should", "should-be", "should-be-a", "should-be-nil", "should-be-same", "should-contain", "should-fail", "should-have-invoked", "should-invoke", "should-not", "should-not-be", "stub"]
+      \ }
+
+augroup END
+
+augroup filetype_clojure
+  autocmd!
+
+  autocmd BufNewFile,BufRead *.hiccup set filetype=clojure
+  autocmd BufNewFile,BufRead *.cljs   set filetype=clojure
+  autocmd BufNewFile,BufRead *.edn    set filetype=clojure
+  autocmd BufNewFile,BufRead *.cljx   set filetype=clojure
+
+  autocmd FileType clojure setlocal lispwords+=describe,it,context,around
+  autocmd FileType clojure :AddTabularPattern! ns_separator /\(\ \)\@<=\(\(:as\)\|\(:refer\)\|\(:only\)\|\(:exclude\)\)
+  autocmd FileType clojure nnoremap <buffer> <localleader>ns1 v%:s/\(\w\)\ \{2,}/\1\ /e<esc>
+  autocmd FileType clojure nnoremap <buffer> <localleader>ns2 v%:Tabularize ns_separator<cr>
+augroup END
 
 
 " --------------------------------- "
 " ----------- Functions ----------- "
 " --------------------------------- "
-
-function! <SID>SortLines() range
-    execute a:firstline . "," . a:lastline . 's/^\(.*\)$/\=strdisplaywidth( submatch(0) ) . " " . submatch(0)/'
-    execute a:firstline . "," . a:lastline . 'sort n'
-    execute a:firstline . "," . a:lastline . 's/^\d\+\s//'
-endfunction
 
 function! <SID>StripTrailingWhitespaces()
     let _s=@/
@@ -144,22 +231,10 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
+function! ResetTSlimeVars()
+  execute "normal \<Plug>SetTmuxVars"
 endfunction
 
-function! PromoteToLet()
-  :normal! dd
-  " :exec '?^\s*it\>'
-  :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :normal ==
+function! ResetTSlimePaneNumber()
+  let g:tslime['pane'] = input("pane number: ", "", "custom,Tmux_Pane_Numbers")
 endfunction
-:command! PromoteToLet :call PromoteToLet()
-
