@@ -1,6 +1,6 @@
 [user]
   name  = Zach Olauson
-  email = zmolauson@gmail.com
+	email = zmolauson@gmail.com
 [core]
   excludesfile = ~/.gitignore
   autocrlf     = input

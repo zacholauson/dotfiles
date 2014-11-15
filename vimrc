@@ -22,48 +22,47 @@ set incsearch nohlsearch
 " --------------------------------- "
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'godlygeek/tabular'
-Bundle 'rking/ag.vim'
-Bundle 'Raimondi/delimitMate'
+Plugin 'godlygeek/tabular'
+Plugin 'rking/ag.vim'
+Plugin 'Raimondi/delimitMate'
 
 " --- Language Specific --- "
-Bundle 'vim-scripts/tComment'
-Bundle 'Yggdroot/indentLine'
-Bundle 'ervandew/supertab'
+Plugin 'vim-scripts/tComment'
+Plugin 'Yggdroot/indentLine'
+Plugin 'ervandew/supertab'
 
 " Ruby
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/surround.vim'
 
 " Clojure
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-classpath'
-Bundle 'vim-scripts/VimClojure'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-classpath'
+Plugin 'vim-scripts/VimClojure'
 
 " --- Git --- "
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 
 " --- Movement --- "
-Bundle 'scrooloose/nerdtree'
-Bundle 'zhaocai/GoldenView.Vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tacahiroy/ctrlp-funky'
+Plugin 'scrooloose/nerdtree'
+Plugin 'zhaocai/GoldenView.Vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 
-Bundle 'itchyny/lightline.vim'
-Bundle 'tpope/vim-surround'
+Plugin 'itchyny/lightline.vim'
 
-Bundle 'jnwhiteh/vim-golang'
+Plugin 'jnwhiteh/vim-golang'
 
-set runtimepath+=$GOROOT/misc/vim " replace $GOROOT with the output of: go env GOROOT
+call vundle#end()
+filetype plugin indent on
 
 filetype plugin indent on
 
@@ -130,7 +129,7 @@ let g:goldenview__enable_default_mapping = 0
 nmap <silent> <C-L> <Plug>GoldenViewSplit
 
 "            VimRspec               "
-let g:rspec_command = 'call Send_to_Tmux("clear\n bundle exec rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
 map <Leader>a :call RunAllSpecs()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
