@@ -1,9 +1,7 @@
 # Unix
 alias :q="exit"
-alias v="$VISUAL"
 alias l='ls -lAhpG'
 alias mkdir='mkdir -pv'
-alias code="cd ~/code/"
 alias reload="exec $SHELL -l"
 
 # Configs
