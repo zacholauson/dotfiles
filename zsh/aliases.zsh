@@ -41,6 +41,13 @@ alias tx="tmuxifier load-session"
 
 alias blog="cd ~/code/8thlight/Apprenticeship/Blog/"
 
+# java
+alias jdk6="export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
+alias jdk7="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home"
+alias jdk8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
+
+alias java_versions="\/usr/libexec/java_home -verbose"
+
 # Show history
 alias history='fc -l 1'
 

@@ -26,9 +26,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'bling/vim-airline'
+Plugin 'Raimondi/delimitMate'
 Plugin 'godlygeek/tabular'
 Plugin 'rking/ag.vim'
-Plugin 'Raimondi/delimitMate'
 
 " --- Language Specific --- "
 Plugin 'vim-scripts/tComment'
@@ -39,31 +43,23 @@ Plugin 'ervandew/supertab'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/surround.vim'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-classpath'
 Plugin 'vim-scripts/VimClojure'
+Plugin 'tpope/vim-classpath'
 
 " --- Git --- "
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 
 " --- Movement --- "
-Plugin 'scrooloose/nerdtree'
 Plugin 'zhaocai/GoldenView.Vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
 
-Plugin 'itchyny/lightline.vim'
-
-Plugin 'jnwhiteh/vim-golang'
 
 call vundle#end()
-filetype plugin indent on
-
 filetype plugin indent on
 
 " --------------------------------- "
@@ -78,7 +74,6 @@ set bg=dark
 
 colorscheme lucius
 " colorscheme seoul256
-" colorscheme github
 
 set nocursorcolumn nocursorline
 set synmaxcol=800
@@ -87,17 +82,8 @@ set showtabline=1
 set fillchars=vert:˙
 set number numberwidth=2
 set foldcolumn=0
-
-let g:lightline = {
-      \ 'colorscheme': 'solarized_light',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ] ]
-      \ },
-\ }
-
+set encoding=utf-8
 set laststatus=2
-set statusline=[%n]\ %<%.99f\ %h%w%m%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 
 " --------------------------------- "
 " ------------ Movement ----------- "
@@ -150,21 +136,24 @@ vmap <Leader>a,  :Tabularize /,\zs<CR>
 vmap <Leader>a:  :Tabularize /:\zs<CR>
 
 "              TSlime               "
-
 map <leader>Tn :call ResetTSlimePaneNumber()<CR>
 map <leader>Ts :call ResetTSlimeVars()<CR>
 
 "              CtrlP                "
 let g:ctrlp_user_command = 'ag %s -f -l --nocolor -g ""'
-let g:ctrlp_extensions = ['funky']
-nmap <Leader>cf :CtrlPFunky<Cr>
-nmap <Leader>cF :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 "           IndentLine              "
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '│'
 
+
+"             Airline               "
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='lucius'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 " --------------------------------- "
 " -------------- MISC ------------- "
@@ -191,6 +180,7 @@ vnoremap <leader>v "*p
 
 au BufRead,BufNewFile *.json                             setf javascript
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+au BufRead,BufNewFile Vagrantfile                        setf ruby
 
 augroup speclj
   autocmd!
