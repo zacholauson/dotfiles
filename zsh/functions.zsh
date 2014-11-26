@@ -29,3 +29,11 @@ function set-git-email() {
 }
 
 add-zsh-hook chpwd set-git-email
+
+function slurp() {
+  cat $1 | pbcopy
+}
+
+function spit() {
+  pbpaste > $1
+}
