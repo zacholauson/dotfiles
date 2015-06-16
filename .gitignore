@@ -2,3 +2,4 @@
 vim/bundle/*
 !vim/bundle/Vundle.vim
 *zcompdump*
+*.DS_Store

@@ -4,6 +4,7 @@
 [core]
   excludesfile = ~/.gitignore
   autocrlf     = input
+  ignorecase   = false
 [branch]
   autosetuprebase = always
 [merge]
@@ -14,7 +15,7 @@
   aa     = add --all
   ap     = add --patch
   ca     = commit --amend
-  ci     = commit --verbose
+  cv     = commit --verbose
   co     = checkout
   st     = status -s
   fa     = fetch --all

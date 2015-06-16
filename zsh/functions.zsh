@@ -1,3 +1,5 @@
+autoload -U add-zsh-hook
+
 function zsh_stats() {
   history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
@@ -14,9 +16,6 @@ function foreground-vim() {
   fg %vim
 }
 
-
-autoload -U add-zsh-hook
-
 function change-git-email-to() {
   git config --global user.email $1
 }
@@ -29,6 +28,18 @@ function set-git-email() {
 }
 
 add-zsh-hook chpwd set-git-email
+
+function config-up() {
+  if [[ -f .config && -r .config ]]; then
+    source .config up
+  fi
+}
+
+function config-down() {
+  if [[ -f -/.config && -r -/.config ]]; then
+    source -/.config down
+  fi
+}
 
 function tmux-colors() {
   for i in {0..255} ; do

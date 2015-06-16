@@ -9,13 +9,12 @@ set nobackup noswapfile
 
 set tabstop=2 shiftwidth=2 backspace=2 expandtab
 
-au FileType java setl tabstop=4 shiftwidth=4 expandtab
-au FileType xml  setl tabstop=4 shiftwidth=4 expandtab
-
 set backspace=indent,eol,start
 set splitright splitbelow
 set autoindent nowrap
 set incsearch nohlsearch
+set cino+=(0)
+
 
 " --------------------------------- "
 " ------------ Bundles ------------ "
@@ -30,33 +29,38 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'
-Plugin 'Raimondi/delimitMate'
+Plugin 'chriskempson/base16-vim'
+Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
 Plugin 'rking/ag.vim'
-
-" --- Language Specific --- "
+Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/tComment'
 Plugin 'Yggdroot/indentLine'
-Plugin 'ervandew/supertab'
+Plugin 'zhaocai/GoldenView.Vim'
+
+" --- Language Specific --- "
 
 " Ruby
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'jgdavey/tslime.vim'
 Plugin 'tpope/vim-endwise'
 
-" Clojure
-Plugin 'guns/vim-clojure-static'
-Plugin 'vim-scripts/VimClojure'
-Plugin 'tpope/vim-classpath'
+" JSON
+Plugin 'elzr/vim-json'
 
-" --- Git --- "
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+" Java
+Plugin 'akhaku/vim-java-unused-imports'
 
-" --- Movement --- "
-Plugin 'zhaocai/GoldenView.Vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+" Scala
+Plugin 'derekwyatt/vim-scala'
+
+" Go
+Plugin 'fatih/vim-go'
+
+" HTML / CSS
+Plugin 'mattn/emmet-vim'
 
 
 call vundle#end()
@@ -68,12 +72,11 @@ filetype plugin indent on
 
 syntax enable
 
-set t_Co=256
-set t_ut=
+set t_Co=256 t_ut=
 set bg=dark
 
-colorscheme lucius
-" colorscheme seoul256
+let base16colorspace=256
+colorscheme base16-ocean
 
 set nocursorcolumn nocursorline
 set synmaxcol=800
@@ -93,7 +96,6 @@ set laststatus=2
 nnoremap <leader><leader> <c-^>
 imap <C-l> <Right>
 
-
 " --------------------------------- "
 " ------------ Plugins ------------ "
 " --------------------------------- "
@@ -102,10 +104,10 @@ imap <C-l> <Right>
 map <C-n> :NERDTreeToggle<CR>
 
 "               Gist                "
-let g:gist_clip_command = 'pbcopy'
+let g:gist_clip_command    = 'pbcopy'
 let g:gist_detect_filetype = 1
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
+let g:gist_show_privates   = 1
+let g:gist_post_private    = 1
 
 vnoremap <C-g><C-g> :Gist<CR>
 nnoremap <C-g><C-g> :Gist<CR>
@@ -113,12 +115,6 @@ nnoremap <C-g><C-g> :Gist<CR>
 "           GoldenView              "
 let g:goldenview__enable_default_mapping = 0
 nmap <silent> <C-L> <Plug>GoldenViewSplit
-
-"            VimRspec               "
-let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
-map <Leader>a :call RunAllSpecs()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>t :call RunCurrentSpecFile()<CR>
 
 "         Clojure Static            "
 let g:clojure_align_multiline_strings = 1
@@ -129,11 +125,18 @@ let vimclojure#HighlightBuiltins = 1
 let vimclojure#HighlightContrib = 1
 let vimclojure#FuzzyIndent = 1
 
+"           vim-rspec               "
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>t :call RunCurrentSpecFile()<CR>
+
 "           Tabularize              "
 vmap <Leader>a=  :Tabularize /=<CR>
 vmap <Leader>a=> :Tabularize /=><CR>
 vmap <Leader>a,  :Tabularize /,\zs<CR>
 vmap <Leader>a:  :Tabularize /:\zs<CR>
+" vmap <leader>a|  :Tabularize /|/l1<CR>
 
 "              TSlime               "
 map <leader>Tn :call ResetTSlimePaneNumber()<CR>
@@ -147,39 +150,56 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '│'
 
-
 "             Airline               "
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='lucius'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
+"             JSON                  "
+let g:vim_json_syntax_conceal = 0
+
+"            vim-go                 "
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
 " --------------------------------- "
 " -------------- MISC ------------- "
 " --------------------------------- "
 
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
 let g:html_indent_tags = 'li\|p'
 let g:vim_markdown_folding_disabled = 1
+
 nnoremap <silent><C-h><C-l> :nohl<CR>
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-map <Leader>rf :call RenameFile()<cr>
+
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+vnoremap <leader>su :sort ui<CR>
+
+" Enable paste mode
 map <leader>pp :setlocal paste!<cr>
 
-" copy / paste to mac clipboard
+" Copy / paste to mac clipboard
 nnoremap <leader>c "*yy
 vnoremap <leader>c "*y
 nnoremap <leader>v "*p
 vnoremap <leader>v "*p
 
+" Format JSON
+nnoremap <leader>jj :%s !python -m json.tool<cr>gg=G
+vnoremap <leader>jj :!python -m json.tool<cr>gg=G
 
 " --------------------------------- "
 " ---- Additional File Support ---- "
 " --------------------------------- "
-
-au BufRead,BufNewFile *.json                             setf javascript
+au FileType json setf javascript
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+au BufRead,BufNewFile *.{hiccup,cljs,edn,cljx}           setf clojure
 au BufRead,BufNewFile Vagrantfile                        setf ruby
 
 augroup speclj
@@ -187,18 +207,13 @@ augroup speclj
 
   au BufNewFile,BufRead *_spec.clj let b:clojure_syntax_keywords = {
       \   'clojureMacro': ["describe", "context", "before", "before-all", "after", "after-all", "around", "it"],
-      \   'clojureFunc':  ["should==", "should=", "should", "should-be", "should-be-a", "should-be-nil", "should-be-same", "should-contain", "should-fail", "should-have-invoked", "should-invoke", "should-not", "should-not-be", "stub"]
+      \   'clojureFunc':  ["should==", "should=", "should", "should-be", "should-be-a", "should-be-nil", "should-be-same",
+      \                    "should-contain", "should-fail", "should-have-invoked", "should-invoke", "should-not", "should-not-be", "stub"]
       \ }
-
 augroup END
 
 augroup filetype_clojure
   autocmd!
-
-  autocmd BufNewFile,BufRead *.hiccup set filetype=clojure
-  autocmd BufNewFile,BufRead *.cljs   set filetype=clojure
-  autocmd BufNewFile,BufRead *.edn    set filetype=clojure
-  autocmd BufNewFile,BufRead *.cljx   set filetype=clojure
 
   autocmd FileType clojure setlocal lispwords+=describe,it,context,around
   autocmd FileType clojure :AddTabularPattern! ns_separator /\(\ \)\@<=\(\(:as\)\|\(:refer\)\|\(:only\)\|\(:exclude\)\)
@@ -206,6 +221,7 @@ augroup filetype_clojure
   autocmd FileType clojure nnoremap <buffer> <localleader>ns2 v%:Tabularize ns_separator<cr>
 augroup END
 
+autocmd BufRead,BufWritePre *.java :UnusedImports
 
 " --------------------------------- "
 " ----------- Functions ----------- "
@@ -226,4 +242,17 @@ endfunction
 
 function! ResetTSlimePaneNumber()
   let g:tslime['pane'] = input("pane number: ", "", "custom,Tmux_Pane_Numbers")
+endfunction
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
 endfunction

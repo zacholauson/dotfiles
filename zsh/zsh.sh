@@ -8,6 +8,6 @@ ZSH_COMPDUMP="$ZSH/.zcompdump_${ZSH_VERSION}"
 
 # Load and run compinit
 autoload -U compinit
-compinit -i -d "${ZSH_COMPDUMP}"
+compinit -i -D "${ZSH_COMPDUMP}"
 
 unset config_file

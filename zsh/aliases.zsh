@@ -7,6 +7,7 @@ alias reload="exec $SHELL -l"
 # Configs
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
+alias nvimrc="vim ~/.nvimrc"
 alias aliases="vim ~/.aliases"
 alias tmuxconf="vim ~/.tmux.conf"
 
@@ -36,10 +37,11 @@ alias tma="tmux attach -t"
 alias tms="tmux switch -t"
 alias tml="tmux list-sessions"
 alias tmk="tmux kill-session -t"
-alias rtmux="tmux source-file ~/.tmux.conf"
-alias tx="tmuxifier load-session"
+alias tmns="tmux new -s"
 
-alias blog="cd ~/code/8thlight/Apprenticeship/Blog/"
+alias rtmux="tmux source-file ~/.tmux.conf"
+
+alias tx="tmuxifier load-session"
 
 # java
 alias jdk6="export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
@@ -66,3 +68,5 @@ cd () {
     builtin cd "$@"
   fi
 }
+
+alias vim="nvim"

@@ -3,7 +3,7 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 export TERM='xterm-256color'
 
-# export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
 export CLICOLOR=true
 
@@ -16,7 +16,7 @@ setopt cdablevarS
 setopt prompt_subst
 
 # Base16 Shell
-BASE16_SCHEME="default"
+BASE16_SCHEME="ocean"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
