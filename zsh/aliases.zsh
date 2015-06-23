@@ -50,6 +50,10 @@ alias jdk8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/C
 
 alias java_versions="\/usr/libexec/java_home -verbose"
 
+# maven
+alias mvnt="mvn clean test"
+alias mvni="mvn clean install"
+
 # Show history
 alias history='fc -l 1'
 
