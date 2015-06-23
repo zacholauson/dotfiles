@@ -1,6 +1,13 @@
 ZSH=$HOME/.zsh
 
 source $ZSH/zsh.sh
+source $ZSH/antigen.zsh
+
+antigen bundles <<EOBUNDLES
+  boot2docker
+EOBUNDLES
+
+antigen apply
 
 export VISUAL=vim
 export EDITOR=vim
