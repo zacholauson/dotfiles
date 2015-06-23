@@ -13,8 +13,8 @@ export VISUAL=vim
 export EDITOR=vim
 
 HISTFILE=$HOME/.history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 
 setopt CORRECT \
        CORRECT_ALL \
@@ -37,7 +37,7 @@ export PYTHON_PATH=$HOME/Library/Python/2.7
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
 
-export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$RBENV_ROOT/shims:$HOME/bin:$HOME/.local/lib/aws/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/gettext/bin:/usr/pkg/bin:/usr/pkg/sbin:$HOME/.tmuxifier/bin:$GOPATH/bin:/opt/chef/embedded/bin:$ANDROID_SDK_ROOT/platform-tools:$PYTHON_PATH/bin:$PATH
+export PATH=/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$RBENV_ROOT/shims:$HOME/bin:$HOME/.local/lib/aws/bin:/usr/local/sbin:/usr/local/opt/gettext/bin:/usr/pkg/bin:/usr/pkg/sbin:$HOME/.tmuxifier/bin:$GOPATH/bin:/opt/chef/embedded/bin:$ANDROID_SDK_ROOT/platform-tools:$PYTHON_PATH/bin:$PATH
 
 export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
