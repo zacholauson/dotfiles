@@ -29,18 +29,6 @@ function set-git-email() {
 
 add-zsh-hook chpwd set-git-email
 
-function config-up() {
-  if [[ -f .config && -r .config ]]; then
-    source .config up
-  fi
-}
-
-function config-down() {
-  if [[ -f -/.config && -r -/.config ]]; then
-    source -/.config down
-  fi
-}
-
 function tmux-colors() {
   for i in {0..255} ; do
     printf "\x1b[38;5;${i}mcolour${i}\n"

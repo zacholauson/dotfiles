@@ -32,10 +32,11 @@
   r      = !git l -30
   ra     = !git r --all
   run    = !run-command-on-git-revisions
-  st     = status -s
+  st     = status
   staged = diff --staged
   stats  = !git-summary
   undo   = !git-undo
+  pom    = push origin master
 [pager]
   show = diff-highlight | less
   diff = diff-highlight | less
