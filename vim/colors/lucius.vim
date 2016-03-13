@@ -250,7 +250,7 @@ let s:normal_items = [
             \ "PmenuThumb", "PreProc", "Question", "Search", "SignColumn",
             \ "Special", "SpecialKey", "Statement", "StatusLineNC", "TabLine",
             \ "TabLineFill", "Todo", "Type", "VertSplit", "Visual",
-            \ "WarningMsg", "WildMenu",
+            \ "WarningMsg", "WildMenu", "Operator", "rubyOperator"
             \ ]
 
 let s:bold_items = [
@@ -434,9 +434,11 @@ else
         hi CursorIM                     guibg=#5f87af
         hi Error        guifg=#d75f5f   guibg=#870000
         hi IncSearch                    guibg=#00afaf
-        hi MatchParen   guifg=#87af5f   guibg=bg
+        hi MatchParen   guifg=#d75f5f   guibg=bg
         hi Search                       guibg=#d78700
         hi Todo         guifg=#afaf00   guibg=#5f5f00
+        hi Operator     guifg=#87af5f
+        hi rubyOperator guifg=#87af5f
     elseif s:contrast == "high"
         hi Cursor                       guibg=#afd7ff
         hi CursorIM                     guibg=#afd7ff

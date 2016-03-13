@@ -17,7 +17,8 @@ set incsearch nohlsearch
 set cino+=(0)
 set ttyfast
 set lazyredraw
-set re=1
+
+let ruby_operators = 1
 
 " --------------------------------- "
 " ------------ Bundles ------------ "
@@ -31,8 +32,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
@@ -45,15 +47,32 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/tComment'
 Plugin 'Yggdroot/indentLine'
 Plugin 'zhaocai/GoldenView.Vim'
+Plugin 'tpope/vim-dispatch'
+Plugin 'benmills/vimux'
+Plugin 'skalnik/vim-vroom'
 
 " --- Language Specific --- "
 
 " Ruby
 Plugin 'tpope/vim-endwise'
 Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'thoughtbot/vim-rspec'
 
 " JSON
 Plugin 'elzr/vim-json'
+
+" Arduino
+Plugin 'sudar/vim-arduino-syntax'
+
+" Clojure
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
+
+" CSS3
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'JulesWang/css.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -65,10 +84,10 @@ filetype plugin indent on
 syntax enable
 
 set t_Co=256 t_ut=
-set bg=dark
-
-let base16colorspace=256
-colorscheme base16-ocean
+let &t_AB="\e[48;5;%dm"
+let &t_AF="\e[38;5;%dm"
+colorscheme lucius
+set background=dark
 
 set nocursorcolumn nocursorline
 set synmaxcol=800
@@ -141,6 +160,9 @@ let g:airline_right_sep = ''
 "             JSON                  "
 let g:vim_json_syntax_conceal = 0
 
+let g:vroom_use_vimux = 1
+let g:vroom_ignore_color_flag = 1
+
 " --------------------------------- "
 " -------------- MISC ------------- "
 " --------------------------------- "
@@ -172,6 +194,9 @@ vnoremap <leader>jj :!python -m json.tool<cr>gg=G
 " Convert Ruby hash syntax
 nnoremap <leader>chs :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
 vnoremap <leader>chs :s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
+
+" Convert Double Quotes to Single Quotes
+vnoremap <leader>cq :s/"/'/gc<cr>
 
 " --------------------------------- "
 " ---- Additional File Support ---- "
@@ -209,3 +234,14 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+function! PromoteToLet()
+    :normal! dd
+    :exec '?^\s*it\>'
+    :normal! P
+    :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2  }/
+    :normal ==
+endfunction
+
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr>

@@ -26,7 +26,8 @@ alias bu="bundle update"
 # Tests and Specs
 alias rspec="bundle exec rspec"
 alias specs="bundle exec rspec spec/"
-alias rake="bundle exec rake"
+# alias rake="bundle exec rake"
+alias cucumber="bundle exec cucumber"
 
 # Rails
 alias rs="bundle exec rails server"
@@ -59,6 +60,8 @@ alias history='fc -l 1'
 
 alias tree="tree --dirsfirst -lFC"
 
+alias vim="nvim"
+
 cd () {
   if [[ "x$*" == "x..." ]]; then
     cd ../..
@@ -72,5 +75,3 @@ cd () {
     builtin cd "$@"
   fi
 }
-
-alias vim="nvim"
