@@ -86,7 +86,9 @@ syntax enable
 set t_Co=256 t_ut=
 let &t_AB="\e[48;5;%dm"
 let &t_AF="\e[38;5;%dm"
-colorscheme lucius
+" colorscheme lucius
+let base16colorspace=256
+colorscheme base16-ocean
 set background=dark
 
 set nocursorcolumn nocursorline
