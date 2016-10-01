@@ -1,0 +1,5 @@
+*history*
+vim/bundle/*
+*zcompdump*
+*.DS_Store
+zsh/cache/*

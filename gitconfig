@@ -1,0 +1,43 @@
+[user]
+  name  = Zach Olauson
+	email = zmolauson@gmail.com
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf     = input
+  ignorecase   = false
+[branch]
+  autosetuprebase = always
+[merge]
+  ff = only
+[color]
+  ui = true
+[alias]
+  aa     = add --all
+  ap     = add --patch
+  ca     = commit --amend
+  co     = checkout
+  cob    = checkout -b
+  cv     = commit --verbose
+  dc     = diff --cached
+  di     = diff
+  div    = divergence
+  ds     = diff --staged
+  fa     = fetch --all
+  graph  = !git-graph
+  gl     = graph
+  h      = !git head
+  head   = !git l -1
+  l      = "!. ~/.githelpers && pretty_git_log"
+  ls     = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  lf     = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  r      = !git l -40
+  ra     = !git r --all
+  run    = !run-command-on-git-revisions
+  st     = status
+  staged = diff --staged
+  stats  = !git-summary
+  undo   = !git-undo
+  pom    = push origin master
+[pager]
+  show = diff-highlight | less
+  diff = diff-highlight | less
