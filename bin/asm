@@ -1,3 +1,0 @@
-#!/bin/bash
-
-java -Xmx1G -jar ~/bin/asm.jar

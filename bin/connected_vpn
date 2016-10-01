@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+VPN_NAME=`scutil --nc list | grep 'Connected' | awk -F "\"" '{print $2}'`
+
+if [[ -n "$VPN_NAME" ]]; then
+  echo "$VPN_NAME #[fg=red]/"
+fi

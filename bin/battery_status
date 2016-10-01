@@ -1,3 +1,10 @@
 #!/bin/bash
 
-pmset -g batt | grep -o '[0-9]*%' | tr -d %
+CHARGING=`pmset -g batt | grep 'AC Power'`
+CHARGE_LEVEL=`pmset -g batt | grep -o '[0-9]*%' | tr -d %`
+
+if [[ -n "$CHARGING" ]]; then
+  echo "⌁$CHARGE_LEVEL%"
+else
+  echo "$CHARGE_LEVEL%"
+fi

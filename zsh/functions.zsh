@@ -16,19 +16,6 @@ function foreground-vim() {
   fg %vim
 }
 
-function change-git-email-to() {
-  git config --global user.email $1
-}
-
-function set-git-email() {
-  case $PWD/ in
-    (*/8thlight/*) change-git-email-to "zach@8thlight.com";;
-    (*)            change-git-email-to "zmolauson@gmail.com";;
-  esac
-}
-
-add-zsh-hook chpwd set-git-email
-
 function tmux-colors() {
   for i in {0..255} ; do
     printf "\x1b[38;5;${i}mcolour${i}\n"
@@ -41,4 +28,16 @@ function slurp() {
 
 function spit() {
   pbpaste > $1
+}
+
+function start-vpn() {
+  scutil --nc start $1
+}
+
+function stop-vpn() {
+  scutil --nc stop $1
+}
+
+function list-vpns() {
+  scutil --nc list
 }

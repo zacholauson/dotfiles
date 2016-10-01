@@ -1,4 +1,0 @@
-#!/bin/bash
-
-openssl pkcs12 -in $1 -clcerts -nokeys -out $2.crt.pem
-openssl pkcs12 -in $1 -nocerts         -out $2.key.pem

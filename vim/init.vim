@@ -1,1 +1,1 @@
-/Users/zacholauson/.nvimrc
+/Users/zacharyolauson/.vimrc

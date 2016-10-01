@@ -32,32 +32,34 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
-Plugin 'chriskempson/base16-vim'
+Plugin 'benmills/vimux'
 Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'chriskempson/base16-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/syntastic'
+Plugin 'skalnik/vim-vroom'
 Plugin 'takac/vim-spotifysearch'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/tComment'
 Plugin 'Yggdroot/indentLine'
 Plugin 'zhaocai/GoldenView.Vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'benmills/vimux'
-Plugin 'skalnik/vim-vroom'
 
 " --- Language Specific --- "
 
 " Ruby
-Plugin 'tpope/vim-endwise'
 Plugin 'ecomba/vim-ruby-refactoring'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-endwise'
+Plugin 'vim-ruby/vim-ruby'
 
 " JSON
 Plugin 'elzr/vim-json'
@@ -66,13 +68,19 @@ Plugin 'elzr/vim-json'
 Plugin 'sudar/vim-arduino-syntax'
 
 " Clojure
-Plugin 'tpope/vim-fireplace'
-Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-fireplace'
 
 " CSS3
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'JulesWang/css.vim'
+
+" iOS
+Plugin 'keith/swift.vim'
+
+" Elm
+Plugin 'lambdatoast/elm.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -91,8 +99,8 @@ let base16colorspace=256
 colorscheme base16-ocean
 set background=dark
 
-set nocursorcolumn nocursorline
-set synmaxcol=800
+set nocursorcolumn cursorline
+set synmaxcol=300
 set list listchars=tab:»·,trail:·
 set showtabline=1
 set fillchars=vert:˙
@@ -203,11 +211,13 @@ vnoremap <leader>cq :s/"/'/gc<cr>
 " --------------------------------- "
 " ---- Additional File Support ---- "
 " --------------------------------- "
-au FileType json setf javascript
+au FileType json                                         setf javascript
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
 au BufRead,BufNewFile *.{hiccup,cljs,edn,cljx}           setf clojure
 au BufRead,BufNewFile Vagrantfile                        setf ruby
 au BufRead,BufNewFile *.gradle                           setf groovy
+au BufRead,BufNewFile *.{tf,tfvars}                      setf terraform
+au BufRead,BufNewFile *.tfstate                          setf javascript
 
 let g:ruby_path="/usr/local/var/rbenv/shims/ruby"
 

@@ -24,12 +24,13 @@
   ds     = diff --staged
   fa     = fetch --all
   graph  = !git-graph
+  gl     = graph
   h      = !git head
   head   = !git l -1
-  hp     = "!. ~/.githelpers && show_git_head"
   l      = "!. ~/.githelpers && pretty_git_log"
-  la     = !git l --all
-  r      = !git l -30
+  ls     = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  lf     = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  r      = !git l -40
   ra     = !git r --all
   run    = !run-command-on-git-revisions
   st     = status

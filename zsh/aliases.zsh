@@ -3,13 +3,7 @@ alias :q="exit"
 alias l='ls -lAhpG'
 alias mkdir='mkdir -pv'
 alias reload="exec $SHELL -l"
-
-# Configs
-alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
-alias nvimrc="vim ~/.nvimrc"
-alias aliases="vim ~/.aliases"
-alias tmuxconf="vim ~/.tmux.conf"
+alias gpg="gpg2"
 
 # git
 alias gd="git diff"
@@ -45,9 +39,9 @@ alias rtmux="tmux source-file ~/.tmux.conf"
 alias tx="tmuxifier load-session"
 
 # java
-alias jdk6="export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
-alias jdk7="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home"
-alias jdk8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
+alias jdk6="export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
+alias jdk7="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home"
+alias jdk8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
 
 alias java_versions="\/usr/libexec/java_home -verbose"
 
@@ -55,8 +49,11 @@ alias java_versions="\/usr/libexec/java_home -verbose"
 alias mvnt="mvn clean test"
 alias mvni="mvn clean install"
 
+# gradle
+alias gdl="./gradlew"
+
 # Show history
-alias history='fc -l 1'
+alias history='fc -l 1 | less'
 
 alias tree="tree --dirsfirst -lFC"
 
