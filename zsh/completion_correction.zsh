@@ -85,3 +85,9 @@ alias cookbook='nocorrect cookbook'
 alias bundle='nocorrect bundle'
 alias ag='nocorrect ag'
 alias erl='nocorrect erl'
+alias asdf='nocorrect asdf'
+alias sfctl='nocorrect sfctl'
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi

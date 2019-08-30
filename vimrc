@@ -31,56 +31,53 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'benmills/vimux'
-Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ervandew/supertab'
-Plugin 'godlygeek/tabular'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'rking/ag.vim'
+Plugin 'ervandew/supertab'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'scrooloose/syntastic'
-Plugin 'skalnik/vim-vroom'
-Plugin 'takac/vim-spotifysearch'
-Plugin 'tpope/vim-abolish'
+Plugin 'zhaocai/GoldenView.Vim'
+
+Plugin 'godlygeek/tabular'
+Plugin 'Yggdroot/indentLine'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/tComment'
+
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/tComment'
-Plugin 'Yggdroot/indentLine'
-Plugin 'zhaocai/GoldenView.Vim'
 
 " --- Language Specific --- "
 
 " Ruby
-Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-endwise'
 Plugin 'vim-ruby/vim-ruby'
 
-" JSON
-Plugin 'elzr/vim-json'
-
-" Arduino
-Plugin 'sudar/vim-arduino-syntax'
-
 " Clojure
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-fireplace'
 
-" CSS3
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'JulesWang/css.vim'
+" JSON
+Plugin 'elzr/vim-json'
 
-" iOS
-Plugin 'keith/swift.vim'
+" TOML
+Plugin 'cespare/vim-toml'
 
-" Elm
-Plugin 'lambdatoast/elm.vim'
+" Terraform
+Plugin 'hashivim/vim-terraform'
+
+" Nginx
+Plugin 'chr4/nginx.vim'
+
+" Elixir
+Plugin 'elixir-editors/vim-elixir'
+
+" Typescript
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -94,7 +91,6 @@ syntax enable
 set t_Co=256 t_ut=
 let &t_AB="\e[48;5;%dm"
 let &t_AF="\e[38;5;%dm"
-" colorscheme lucius
 let base16colorspace=256
 colorscheme base16-ocean
 set background=dark
@@ -154,7 +150,7 @@ vmap <Leader>a,  :Tabularize /,\zs<CR>
 vmap <Leader>a:  :Tabularize /:\zs<CR>
 
 "              CtrlP                "
-let g:ctrlp_user_command = 'ag %s -f -l --nocolor -g ""'
+let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob "!.git/*"'
 
 "           IndentLine              "
 let g:indentLine_color_term = 239
@@ -169,9 +165,6 @@ let g:airline_right_sep = ''
 
 "             JSON                  "
 let g:vim_json_syntax_conceal = 0
-
-let g:vroom_use_vimux = 1
-let g:vroom_ignore_color_flag = 1
 
 " --------------------------------- "
 " -------------- MISC ------------- "
@@ -188,25 +181,23 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 vnoremap <leader>su :sort ui<CR>
 
-" Enable paste mode
 map <leader>pp :setlocal paste!<cr>
 
-" Copy / paste to mac clipboard
 nnoremap <leader>c "*yy
 vnoremap <leader>c "*y
 nnoremap <leader>v "*p
 vnoremap <leader>v "*p
 
-" Format JSON
 nnoremap <leader>jj :%s !python -m json.tool<cr>gg=G
 vnoremap <leader>jj :!python -m json.tool<cr>gg=G
 
-" Convert Ruby hash syntax
 nnoremap <leader>chs :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
 vnoremap <leader>chs :s/:\([^ ]*\)\(\s*\)=>/\1:/gc<cr>
 
-" Convert Double Quotes to Single Quotes
 vnoremap <leader>cq :s/"/'/gc<cr>
+
+" XML Formatting
+nnoremap <leader>xf :%s/></>\r</g<CR>gg=G
 
 " --------------------------------- "
 " ---- Additional File Support ---- "
@@ -233,27 +224,3 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
-function! PromoteToLet()
-    :normal! dd
-    :exec '?^\s*it\>'
-    :normal! P
-    :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2  }/
-    :normal ==
-endfunction
-
-:command! PromoteToLet :call PromoteToLet()
-:map <leader>p :PromoteToLet<cr>

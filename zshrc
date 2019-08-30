@@ -29,8 +29,6 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PYTHON_PATH=$HOME/Library/Python/2.7
 export POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/9.4/bin/
-export DYLD_LIBRARY_PATH=/Users/zacharyolauson/bin/instantclient_11_2
-export NLS_LANG=AMERICAN_AMERICA.UTF8
 export GPG_PATH=/usr/local/opt/gnupg/libexec/gpgbin
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home
@@ -40,3 +38,6 @@ export PATH=/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$RBENV_ROOT/shims
 eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /usr/local/share/antigen/antigen.zsh
+antigen init ~/.antigenrc

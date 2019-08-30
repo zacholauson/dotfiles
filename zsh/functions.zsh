@@ -12,11 +12,7 @@ function record(){
   fi
 }
 
-function foreground-vim() {
-  fg %vim
-}
-
-function tmux-colors() {
+function tmux::colors() {
   for i in {0..255} ; do
     printf "\x1b[38;5;${i}mcolour${i}\n"
   done
@@ -30,14 +26,12 @@ function spit() {
   pbpaste > $1
 }
 
-function start-vpn() {
-  scutil --nc start $1
+function ssl::inspect-remote-cert() {
+  echo | openssl s_client -showcerts -connect "$1:443" 2>/dev/null | openssl x509 -inform pem -noout -text
 }
 
-function stop-vpn() {
-  scutil --nc stop $1
-}
-
-function list-vpns() {
-  scutil --nc list
+function ssl::compare-remote-certs() {
+  diff \
+    <(echo | openssl s_client -showcerts -connect "$1:443" 2>/dev/null | openssl x509 -inform pem -noout -text) \
+    <(echo | openssl s_client -showcerts -connect "$2:443" 2>/dev/null | openssl x509 -inform pem -noout -text)
 }

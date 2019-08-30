@@ -1,9 +1,11 @@
 # Unix
 alias :q="exit"
-alias l='ls -lAhpG'
+alias l='exa -laH@'
 alias mkdir='mkdir -pv'
 alias reload="exec $SHELL -l"
 alias gpg="gpg2"
+alias cat="bat"
+alias fmtxml="xq . -x | bat -l xml"
 
 # git
 alias gd="git diff"
@@ -33,21 +35,6 @@ alias tms="tmux switch -t"
 alias tml="tmux list-sessions"
 alias tmk="tmux kill-session -t"
 alias tmns="tmux new -s"
-
-alias rtmux="tmux source-file ~/.tmux.conf"
-
-alias tx="tmuxifier load-session"
-
-# java
-alias jdk6="export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
-alias jdk7="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home"
-alias jdk8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
-
-alias java_versions="\/usr/libexec/java_home -verbose"
-
-# maven
-alias mvnt="mvn clean test"
-alias mvni="mvn clean install"
 
 # gradle
 alias gdl="./gradlew"
